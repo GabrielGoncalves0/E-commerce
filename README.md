@@ -13,6 +13,7 @@ Este é um projeto de um mini e-commerce com as seguintes funcionalidades:
 - Confirmação de pedidos através de uma modal.
 - Listagem de pedidos com os produtos incluídos.
 - Exportação de dados para Excel e PDF.
+- Filtragem na tabela pedidos.
 
 ## Tecnologias Utilizadas
 
