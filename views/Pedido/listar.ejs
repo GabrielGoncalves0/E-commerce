@@ -1,0 +1,44 @@
+<script src="/js/Pedido/listagem.js"></script>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.2/package/dist/xlsx.full.min.js"></script>
+<h1>Pedidos Realizados</h1>
+<div style="margin-bottom: 15px;">
+    <button id="btnExportarExcel" class="btn btn-primary" >Exportar para Excel</button>
+</div>
+<div style="margin-bottom: 15px;">
+    <label for="filtro">Filtro:</label>
+    <div class="input-group">
+        <input id="filtro" type="text" placeholder="Digite um valor a ser filtrado..." class="form-control" aria-label="Text input with dropdown button">
+        <div class="input-group-append">
+          <button id="btnEscolherFiltro" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Filtros</button>
+          <div class="dropdown-menu">
+            <a class="dropdown-item itemFiltro" data-valor="2" data-nome="Nº Pedido" href="#">Nº do Pedido</a>
+            <a class="dropdown-item itemFiltro" data-valor="1" data-nome="Nome do Produto" href="#">Nome do Produto</a>
+          </div>
+          <button id="btnFiltrar" class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i> Buscar</button>
+        </div>
+      </div>
+</div>
+<div class="table-responsive">
+    <table id="tabelaPedidos" class="table table-striped">
+        <thead>
+            <th>Nº Pedido</th>
+            <th>Data do pedido</th>
+            <th>Produto</th>
+            <th>Valor unitário</th>
+            <th>Quantidade</th>
+            <th>Valor total</th>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i<pedidos.length; i++) { %>
+                <tr>
+                    <td><%= pedidos[i].pedidoId %></td>
+                    <td><%= pedidos[i].pedidoData.toLocaleString() %></td>
+                    <td><%= pedidos[i].produtoNome %></td>
+                    <td>R$<%= pedidos[i].pedidoItemValor %></td>
+                    <td><%= pedidos[i].pedidoItemQuantidade %></td>
+                    <td>R$<%= pedidos[i].pedidoItemValorTotal %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
